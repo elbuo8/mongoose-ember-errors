@@ -1,0 +1,14 @@
+{
+  "name": "mongoose-ember-errors",
+  "version": "0.0.1",
+  "description": "Convert mongoose validation errors to ember-data compatible errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "author": "Yamil Asusta @elbuo8",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^4.0.2"
+  }
+}
