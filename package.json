@@ -1,6 +1,6 @@
 {
   "name": "mongoose-ember-errors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert mongoose validation errors to ember-data compatible errors",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,29 @@
   "license": "MIT",
   "dependencies": {
     "mongoose": "^4.0.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elbuo8/mongoose-ember-errors.git"
+  },
+  "keywords": [
+    "ember",
+    "errors",
+    "jsonapi",
+    "data",
+    "ember-data",
+    "error",
+    "mongoose",
+    "validationerror"
+  ],
+  "bugs": {
+    "url": "https://github.com/elbuo8/mongoose-ember-errors/issues"
+  },
+  "homepage": "https://github.com/elbuo8/mongoose-ember-errors"
 }
