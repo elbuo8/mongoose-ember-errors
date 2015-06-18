@@ -1,6 +1,6 @@
 {
   "name": "mongoose-ember-errors",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convert mongoose validation errors to ember-data compatible errors",
   "main": "index.js",
   "scripts": {
