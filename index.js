@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var util = require('util');
 
 function DSErrorSerializer(err) {
@@ -25,6 +26,7 @@ util.inherits(DSErrorSerializer, Error);
 DSErrorSerializer.prototype.buildValidatorError = function(error, message) {
   var self = this;
   var keys = error.split('.');
+
   function errorBuilder(keys) {
     var result = {};
     if (!keys[1]) {
@@ -34,7 +36,7 @@ DSErrorSerializer.prototype.buildValidatorError = function(error, message) {
     }
     return result;
   }
-  self.errors[keys[0]] = errorBuilder(keys.slice(1));
+  self.errors[keys[0]] = _.merge(self.errors[keys[0]] || {}, errorBuilder(keys.slice(1)));
 };
 
 module.exports = DSErrorSerializer;

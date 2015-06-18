@@ -36,7 +36,6 @@ describe('DSErrorSerializer', function() {
       testField: 'test'
     });
     test.save(function(err) {
-      console.log(err);
       err = new EmberError(err);
       assert(err.errors.nestedStruct.nestedFieldStruct);
       done();
