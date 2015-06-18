@@ -36,7 +36,11 @@ DSErrorSerializer.prototype.buildValidatorError = function(error, message) {
     }
     return result;
   }
-  self.errors[keys[0]] = _.merge(self.errors[keys[0]] || {}, errorBuilder(keys.slice(1)));
+  if (keys.length > 1) {
+    self.errors[keys[0]] = _.merge(self.errors[keys[0]] || {}, errorBuilder(keys.slice(1)));
+  } else {
+    self.errors[keys[0]] = [message];
+  }
 };
 
 module.exports = DSErrorSerializer;
