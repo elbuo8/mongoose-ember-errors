@@ -11,7 +11,10 @@ describe('DSErrorSerializer', function() {
   before(function() {
     var testSchema = new Schema({
       testObjectId: {type: Schema.Types.ObjectId},
-      testField: {type: String, required: true}
+      testField: {type: String, required: true},
+      nestedStruct: {
+        nestedFieldStruct: {type: String, required: true}
+      }
     });
     Model = mongoose.model('Schema', testSchema);
   });
@@ -24,6 +27,17 @@ describe('DSErrorSerializer', function() {
       err = new EmberError(err);
       assert(err.errors.testObjectId);
       assert(err.errors.testField);
+      done();
+    });
+  });
+  it('should convert nested fields into a nested error struct', function(done) {
+     var test = new Model({
+      testObjectId: 'test',
+      testField: 'test'
+    });
+    test.save(function(err) {
+      err = new EmberError(err);
+      assert(err.errors.nestedStruct.nestedFieldStruct);
       done();
     });
   });
