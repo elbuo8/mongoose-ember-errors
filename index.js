@@ -12,7 +12,7 @@ function DSErrorSerializer(err) {
   Object.keys(err.errors).forEach(function(error) {
     switch (err.errors[error].name) {
       case 'CastError':
-        self.errors[error] = [err.errors[error].value + ' is invalid'];
+        self.buildValidatorError(error, (error.value ? 'is invalid': 'is required'));
         break;
       case 'ValidatorError':
         self.buildValidatorError(error, err.errors[error].message);
